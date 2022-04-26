@@ -1,25 +1,44 @@
 import javax.swing.*;
-
-public class JBookFrame extends JFrame {
+import java.awt.*;
+import java.awt.event.*;
+public class JBookFrame extends JFrame implements ActionListener{
     JFrame frame = new JFrame();
     JLabel label = new JLabel("");
-    JButton button = new JButton("Show Title");
+    JButton button = new JButton();
 
-    public JBookFrame() {
+    public JBookFrame(String text) {
         super();
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(350, 150);
-        setTitle("My Favorite Book");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(300, 100);
+        this.setTitle("My Favorite Book");
+        this.setLayout(new FlowLayout());
 
-        add(label);
-        add(button);
-        setlayout(new FlowLayout());
-        button.setToolTipText("Click to reveal Button");
-        button.setSize(75, 25);
-        label.setSize(200, 150);
-        label.setHorizontalAlignment(JLabel.CENTER);
-        label.setVerticalAlignment(JLabel.CENTER);
+        /* Label Stuff */ {
+            label.setHorizontalAlignment(JLabel.CENTER);
+            label.setVerticalAlignment(JLabel.CENTER);
+            label.setText(text);
+            label.setSize(200, 150);
+        }
+        /* Button Stuff */ {
+            button.setText("Reveal Title");
+            button.setToolTipText("Click to reveal Button");
+            button.setLayout(new FlowLayout(FlowLayout.CENTER));
+        }
 
+        this.add(label);
+        this.add(button);
+
+    }
+    
+    public void buttonClickChanged(ActionEvent event) {
+
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // TODO Auto-generated method stub
+        
     }
 
 }
